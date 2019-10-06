@@ -1,0 +1,64 @@
+{
+	"id": "5d923e24-7033-4d41-a99a-a3ff5adc85e0",
+	"name": "GeriBoboEnv",
+	"values": [
+		{
+			"key": "postman_api_key\n",
+			"value": "PMAK-5d95b52d398d29003c0a3dae-de20f335cfd8827cde5acd045ea5a56608",
+			"enabled": true
+		},
+		{
+			"key": "task_base_url",
+			"value": "https://missguided.poq.io",
+			"enabled": true
+		},
+		{
+			"key": "task_user_pass",
+			"value": "pass12345%",
+			"enabled": true
+		},
+		{
+			"key": "task_account_login",
+			"value": "/account/login/76/FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+			"enabled": true
+		},
+		{
+			"key": "task_account_register",
+			"value": "/account/register/76/FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+			"enabled": true
+		},
+		{
+			"key": "task_account_logout",
+			"value": "/account/logout/76/FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+			"enabled": true
+		},
+		{
+			"key": "task_registered_user_email",
+			"value": "Furman_Keeling37@yahoo.com",
+			"enabled": true
+		},
+		{
+			"key": "task_user_wrong_pass",
+			"value": "12345",
+			"enabled": true
+		},
+		{
+			"key": "task_product_details",
+			"value": "/products/detail/76",
+			"enabled": true
+		},
+		{
+			"key": "task_product_id_1",
+			"value": "/5225863",
+			"enabled": true
+		},
+		{
+			"key": "task_product_id_2\n",
+			"value": "/3991584",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-10-06T18:25:45.762Z",
+	"_postman_exported_using": "Postman/7.8.0"
+}
