@@ -1,0 +1,2201 @@
+{
+	"info": {
+		"_postman_id": "513d0582-8901-4b8f-b5cd-38daea2804fa",
+		"name": "GeriBobo",
+		"description": "[Postman api docs](https://docs.api.getpostman.com/?version=latest)\n\n[Postman api sandbox reference](https://learning.getpostman.com/docs/postman/scripts/postman_sandbox_api_reference/)  \n1. Global functions\n2. Dynamic variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AccountRegister",
+			"item": [
+				{
+					"name": "register positive with valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83a43341-f918-4086-b5f5-82075e76bea3",
+								"exec": [
+									"pm.test(\"Successful POST request 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,400]);",
+									"});",
+									"",
+									"if(pm.response.code===200){",
+									"const jsonData = pm.response.json();",
+									"pm.environment.set(\"task_registered_user_email\", jsonData.username);",
+									"}",
+									"",
+									"if(pm.response.code===400){",
+									"postman.setNextRequest(\"register positive with valid details\");",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " missguided.poq.io",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": " 76",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"type": "text"
+							},
+							{
+								"key": "Version-Code",
+								"value": " 14.5",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-us",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": " iphone",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": " 228",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " br, gzip, deflate",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"value": " GBP",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "appUserAgent",
+								"value": " Poq-Native-iOS-App",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\"\n    },\n    \"credentials\": {\n        \"password\": \"{{task_user_pass}}\",\n        \"username\": \"{{$randomEmail}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout after register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,429]);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_pass}}\",\n    \"username\": \"{{task_registered_user_email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_logout}}",
+							"host": [
+								"{{task_base_url}}{{task_account_logout}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register negative try to register with existing user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": " 76CAD83D-9877-43C4-88F4-4331B7F30CFC"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\"\n    },\n    \"credentials\": {\n        \"password\": \"{{$randomPassword}}\",\n        \"username\": \"{{task_registered_user_email}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register negative try to register with pass less than 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": " 76CAD83D-9877-43C4-88F4-4331B7F30CFC"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\"\n    },\n    \"credentials\": {\n        \"password\": \"12345\",\n        \"username\": \"{{$randomEmail}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register negative try to register with invalid email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": " 76CAD83D-9877-43C4-88F4-4331B7F30CFC"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"{{$randomLastName}}\"\n    },\n    \"credentials\": {\n        \"password\": \"{{$randomPassword}}\",\n        \"username\": \"{{$randomUserName}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register negative try to register without first name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": " 76CAD83D-9877-43C4-88F4-4331B7F30CFC"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"\",\n        \"lastName\": \"{{$randomLastName}}\"\n    },\n    \"credentials\": {\n        \"password\": \"{{$randomPassword}}\",\n        \"username\": \"{{$randomUserName}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register negative try to register without last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": " 76CAD83D-9877-43C4-88F4-4331B7F30CFC"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPromotion\": false,\n    \"profile\": {\n        \"firstName\": \"{{$randomFirstName}}\",\n        \"lastName\": \"\"\n    },\n    \"credentials\": {\n        \"password\": \"{{$randomPassword}}\",\n        \"username\": \"{{$randomUserName}}\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_register}}",
+							"host": [
+								"{{task_base_url}}{{task_account_register}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AccountLogin",
+			"item": [
+				{
+					"name": "login positive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"function pausecomp(millis)",
+									" {",
+									"  var date = new Date();",
+									"  var curDate = null;",
+									"  do { curDate = new Date(); ",
+									"  }",
+									"  while(curDate-date < millis);",
+									"}",
+									"",
+									"pm.test(\"Successful POST request 200 or 429\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,429]);",
+									"});",
+									"",
+									"",
+									"if(pm.response.code===429){",
+									"const seconds = postman.getResponseHeader(\"Retry-After\");",
+									"pausecomp(seconds*1000);",
+									"postman.setNextRequest(\"login positive\");",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_pass}}\",\n    \"username\": \"{{task_registered_user_email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_login}}",
+							"host": [
+								"{{task_base_url}}{{task_account_login}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login negative wrong pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"function pausecomp(millis)",
+									" {",
+									"  var date = new Date();",
+									"  var curDate = null;",
+									"  do { curDate = new Date(); ",
+									"  }",
+									"  while(curDate-date < millis);",
+									"}",
+									"",
+									"pm.test(\"Successful POST request 400 or 429\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,429]);",
+									"});",
+									"",
+									"",
+									"if(pm.response.code===429){",
+									"const seconds = postman.getResponseHeader(\"Retry-After\");",
+									"pausecomp(seconds*1000);",
+									"postman.setNextRequest(\"login negative wrong pass\");",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_wrong_pass}}\",\n    \"username\": \"{{task_registered_user_email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_login}}",
+							"host": [
+								"{{task_base_url}}{{task_account_login}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login negative with unregistered email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"function pausecomp(millis)",
+									" {",
+									"  var date = new Date();",
+									"  var curDate = null;",
+									"  do { curDate = new Date(); ",
+									"  }",
+									"  while(curDate-date < millis);",
+									"}",
+									"",
+									"pm.test(\"Successful POST request 400 or 429\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,429]);",
+									"});",
+									"",
+									"",
+									"if(pm.response.code===429){",
+									"const seconds = postman.getResponseHeader(\"Retry-After\");",
+									"pausecomp(seconds*1000);",
+									"postman.setNextRequest(\"login negative with unregistered email\");",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_pass}}\",\n    \"username\": \"{{$randomEmaill}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_login}}",
+							"host": [
+								"{{task_base_url}}{{task_account_login}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login negative without data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"function pausecomp(millis)",
+									" {",
+									"  var date = new Date();",
+									"  var curDate = null;",
+									"  do { curDate = new Date(); ",
+									"  }",
+									"  while(curDate-date < millis);",
+									"}",
+									"",
+									"pm.test(\"Successful POST request 500 or 429\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([500,429]);",
+									"});",
+									"",
+									"",
+									"if(pm.response.code===429){",
+									"const seconds = postman.getResponseHeader(\"Retry-After\");",
+									"pausecomp(seconds*1000);",
+									"postman.setNextRequest(\"login negative without data\");",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": null,\n    \"username\": null\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_login}}",
+							"host": [
+								"{{task_base_url}}{{task_account_login}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "AccountLogout",
+			"item": [
+				{
+					"name": "logout positive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 200\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,429]);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_pass}}\",\n    \"username\": \"{{task_registered_user_email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_logout}}",
+							"host": [
+								"{{task_base_url}}{{task_account_logout}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout negative with wrong pass",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_wrong_pass}}\",\n    \"username\": \"{{task_registered_user_email}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_logout}}",
+							"host": [
+								"{{task_base_url}}{{task_account_logout}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout negative with wrong email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a685b836-d10b-403e-ab46-c3dbb534fc03",
+								"exec": [
+									"pm.test(\"Successful POST request 400\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-gb",
+								"disabled": true
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Length",
+								"value": "97",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Currency-Code",
+								"value": "GBP",
+								"disabled": true
+							},
+							{
+								"key": "Host",
+								"value": "missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": "76",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": "1Mt55bRETdD4JHnljklOnuYxalboBVx4QUWocgiARXE=",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "82b6ae98-1df5-42ae-bd7c-b5c467656301,777cbe9a-f1c3-405e-b705-f68b19e508ed",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Missguided/14.4.0.1543 CFNetwork/1098.7 Darwin/19.0.0",
+								"disabled": true
+							},
+							{
+								"key": "Version-Code",
+								"value": "14.3",
+								"disabled": true
+							},
+							{
+								"key": "appUserAgent",
+								"value": "Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "cache-control",
+								"value": "no-cache",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": "iphone",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"{{task_user_pass}}\",\n    \"username\": \"{{$randomEmail}}\"\n}"
+						},
+						"url": {
+							"raw": "{{task_base_url}}{{task_account_logout}}",
+							"host": [
+								"{{task_base_url}}{{task_account_logout}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Seems like to be we can login to endpoint via baseurl/accounts/logout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1284a43d-4d2e-4b97-9b52-de4548e8dcd4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "02f8c575-08d6-4994-95d0-e9ba0a84e9eb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ProductDetails",
+			"item": [
+				{
+					"name": "product details positive id 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "024b19fb-7f47-4786-83ef-37d583e8c296",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.color).to.eql(\"White\");",
+									"    pm.expect(jsonData.price).to.eql(6.0);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " missguided.poq.io",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"type": "text",
+								"value": " 76",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"type": "text",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f"
+							},
+							{
+								"key": "Version-Code",
+								"type": "text",
+								"value": " 14.5",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-us",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"type": "text",
+								"value": " iphone",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"type": "text",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+							},
+							{
+								"key": "Content-Length",
+								"type": "text",
+								"value": " 228",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " br, gzip, deflate",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"type": "text",
+								"value": " GBP",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": " application/json"
+							},
+							{
+								"key": "appUserAgent",
+								"type": "text",
+								"value": " Poq-Native-iOS-App",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"type": "text",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{task_base_url}}{{task_product_details}}{{task_product_id_1}} ?externalId=1147271&poqUserId=FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+							"host": [
+								"{{task_base_url}}{{task_product_details}}{{task_product_id_1}} "
+							],
+							"query": [
+								{
+									"key": "externalId",
+									"value": "1147271"
+								},
+								{
+									"key": "poqUserId",
+									"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product details positive id 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "024b19fb-7f47-4786-83ef-37d583e8c296",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " missguided.poq.io",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-App-Id",
+								"value": " 76",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "Poq-App-Identifier",
+								"value": "1df7acb3-0735-43bc-acf9-8271e41cf42f",
+								"type": "text"
+							},
+							{
+								"key": "Version-Code",
+								"value": " 14.5",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-us",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "platform",
+								"value": " iphone",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-User-Id",
+								"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": " 228",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " br, gzip, deflate",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": " Missguided/14.5.0.1586 CFNetwork/978.0.7 Darwin/18.7.0",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Currency-Code",
+								"value": " GBP",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": " application/json",
+								"type": "text"
+							},
+							{
+								"key": "appUserAgent",
+								"value": " Poq-Native-iOS-App",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Poq-Auth",
+								"value": " 2aSwtG+fnEtzzPaObIiso5ziMfRtLnou8l/MUhdA+9Y=",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{task_base_url}}{{task_product_details}}{{task_product_id_2\n}}?externalId=881963&poqUserId=FBFFBB77-03A2-4FF2-B540-FB1B25453270",
+							"host": [
+								"{{task_base_url}}{{task_product_details}}{{task_product_id_2\n}}"
+							],
+							"query": [
+								{
+									"key": "externalId",
+									"value": "881963"
+								},
+								{
+									"key": "poqUserId",
+									"value": "FBFFBB77-03A2-4FF2-B540-FB1B25453270"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b692be65-92a0-4d77-838a-bfb739f0a7d6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "26a7f911-2a32-4db2-a6c3-03bc087862c0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
